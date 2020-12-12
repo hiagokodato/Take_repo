@@ -9,7 +9,7 @@ class TakeGithubController {
 
         sortedCSharpRepos.length = 5;
 
-        return res.json(sortedCSharpRepos);
+        return res.json({ data: sortedCSharpRepos });
     }
 }
 
