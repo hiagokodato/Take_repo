@@ -8,8 +8,11 @@ class TakeGithubController {
         const sortedCSharpRepos = cSharpRepos.sort((date1, date2) => new Date(date1.created_at) - new Date(date2.created_at));
 
         sortedCSharpRepos.length = 5;
-
-        return res.json({ data: sortedCSharpRepos });
+        const returnRepos = {};
+        for (let i = 0; i <= sortedCSharpRepos.length - 1; i += 1) {
+          returnRepos[`repo${i + 1}`] = { ...sortedCSharpRepos[i] };
+        }
+        return res.json(returnRepos);
     }
 }
 
